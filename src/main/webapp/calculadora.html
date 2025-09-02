@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./calculadora.css">
+</head>
+
+<body class="p-4">
+
+    <!-- <div class="container">
+        <div id="loginForm">
+            <h2>Iniciar sesión</h2>
+            <input type="text" id="usuario" class="form-control mb-2" placeholder="Usuario">
+            <input type="password" id="clave" class="form-control mb-2" placeholder="Contraseña">
+            <button class="btn btn-primary rounded-pill px-3" onclick="login()">Entrar</button>
+            <div id="loginError" class="text-danger mt-2"></div>
+        </div> -->
+
+        <div id="calculadora">
+            
+                <div id="contenedorPrincipal" >
+
+                <div id="displayBox"><label>0</label></div>
+              
+                <div id="cajaC"><button>C</button></div>
+              
+                <div id="caja7" class="numero"><button>7</button></div>
+                <div id="caja8" class="numero"><button>8</button></div>
+                <div id="caja9" class="numero"><button>9</button></div>
+              
+                <div id="caja4" class="numero"><button>4</button></div>
+                <div id="caja5" class="numero"><button>5</button></div>
+                <div id="caja6" class="numero"><button>6</button></div>
+              
+                <div id="caja1" class="numero"><button>1</button></div>
+                <div id="caja2" class="numero"><button>2</button></div>
+                <div id="caja3" class="numero"><button>3</button></div>
+              
+                <div id="caja0" class="numero"><button>0</button></div>
+                <div id="cajaPunto" class="numero"><button>.</button></div>
+              
+                <div id="cajaSuma" class="operador"><button>+</button></div>
+                <div id="cajaResta" class="operador"><button>-</button></div>
+                <div id="cajaMult" class="operador"><button>*</button></div>
+                <div id="cajaDiv" class="operador"><button>/</button></div>
+                <div id="cajaIgual" class="operador"><button>=</button></div>
+              </div>
+              
+        </div>
+   
+    <!-- <script>
+        function login() {
+            const usuario = document.getElementById("usuario").value;
+            const clave = document.getElementById("clave").value;
+
+            fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ usuario, clave })
+            })
+                .then(res => {
+                    if (res.ok) {
+                        document.getElementById("loginForm").className = "d-none";
+                        document.getElementById("calculadora").className = "d-block";
+
+                    } else {
+                        document.getElementById("loginError").innerText = "Credenciales incorrectas.";
+                    }
+                });
+        }
+    </script> -->
+
+    <script>
+        let operacion = "";
+        let coma = Boolean(true);
+        let operador2 = Boolean(false);
+
+    window.onload = function ()
+    { let numBtn = document.getElementsByClassName('numero'); //esto hace el array
+    for(let i=0;i<numBtn.length;i++)
+        numBtn[i].onclick= clickNumero
+        let operadorBtn = document.getElementsByClassName('operador');
+    for(let j=0;j <operadorBtn.length;j++)
+        operadorBtn[j].onclick = clickOperador
+    document.getElementById('cajaIgual').onclick = resOperacion;
+    document.getElementById('cajaPunto').onclick = ponerPunto;
+    document.getElementById('cajaC').onclick = BorrarNumero;
+
+    }
+    function clickNumero(evento){
+        console.log (evento.currentTarget.textContent)
+        operacion += evento.currentTarget.textContent
+        operador2 = true
+        console.log(operacion)
+        document.getElementById('displayBox').textContent= operacion //con este muestro en la pantalla
+
+
+    }
+    function clickOperador(evento){
+        console.log(evento.currentTarget.textContent)
+        if(operador2 == true){
+            operacion += evento.currentTarget.textContent 
+            operador2 = false;
+        }
+        coma = true
+        document.getElementById('displayBox').textContent = operacion
+    }
+    function resOperacion(evento){
+        document.getElementById('displayBox').textContent = eval(operacion)//la operacion esta guardad dentro del string eval mira a ver su hay algun tipo de operacion y la hace 
+    }
+
+    function ponerPunto(evento){
+        console.log(evento.currentTarget.textContent)
+        console.log(coma)
+        if( coma == true){
+            operacion += evento.currentTarget.textContent
+            coma = false
+        } console.log(coma)
+        document.getElementById('displayBox').textContent = operacion
+        console.log(operacion)
+        
+    }
+    function BorrarNumero(evento){
+        document.getElementById('displayBox').textContent = '';
+        operacion = '';
+        coma = true;
+        operador2 = false
+
+
+    }
+
+
+    </script>
+
+</body>
+
+</html>

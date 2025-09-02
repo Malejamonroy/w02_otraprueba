@@ -1,0 +1,79 @@
+.container {background-color: lightgray;
+    
+}
+
+.btn-primary {
+  background-color: #b413aa;
+  color: white;
+  border-color: #b327a9;
+  /* ejemplo borde 3 px de puntitos y negro border: 3px dotted black;*/
+}
+.btn-primary:hover{
+    background-color: #890e47;
+    border-color: #890e47;
+}
+#contenedorPrincipal {
+    display: grid;
+    grid-template-rows: repeat(6, 60px);
+    grid-template-columns: repeat(5, 60px);
+    gap: 5px;
+    background: #aaa;
+    padding: 10px;
+    width: max-content;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  
+  #contenedorPrincipal > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  /* display */
+  #displayBox {
+    grid-area: 1 / 1 / 2 / 6;
+    background: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 2rem;
+    border-radius: 5px;
+   
+    }
+  
+  /* botones */
+   /* grid-column-start: ; poner el primer y ultimo boton en posicion 
+    grid-column-end: ; */
+  #cajaC       { grid-area: 2 / 3 / 3 / 6; }
+  #caja7       { grid-area: 3 / 1 / 4 / 2; }
+  #caja8       { grid-area: 3 / 2 / 4 / 3; }
+  #caja9       { grid-area: 3 / 3 / 4 / 4; }
+  
+  #caja4       { grid-area: 4 / 1 / 5 / 2; }
+  #caja5       { grid-area: 4 / 2 / 5 / 3; }
+  #caja6       { grid-area: 4 / 3 / 5 / 4; }
+  
+  #caja1       { grid-area: 5 / 1 / 6 / 2; }
+  #caja2       { grid-area: 5 / 2 / 6 / 3; }
+  #caja3       { grid-area: 5 / 3 / 6 / 4; }
+  
+  #cajaPunto    { grid-area: 6 / 1 / 7 / 2; }
+  #caja0       { grid-area: 6 / 2 / 7 / 3; }
+  
+  #cajaSuma    { grid-area: 3/ 4 / 6 / 5; }
+  #cajaResta   { grid-area: 3 / 5 / 4 / 6; } /* se solapan intencionalmente, el último prevalece si se desea uno solo */
+  #cajaMult    { grid-area: 4 / 5 / 5 / 5; }
+  #cajaDiv     { grid-area: 5 / 5 / 6 / 5; }
+  
+  #cajaIgual   { grid-area: 6 / 4 / 7 / 6; }
+  
